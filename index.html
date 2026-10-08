@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Siddeqi PizzaHut - Delicious pizza, burgers, fries and cold drinks in Kabal, Swat. Powered by AI Ordering Assistant.">
+    <meta name="theme-color" content="#ff385c">
+
+    <title>Siddeqi PizzaHut | Kabal Swat - AI-Powered Restaurant</title>
+
+    <!-- Google Fonts: Plus Jakarta Sans, Outfit, Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Modern Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- =========================================================
+     NAVBAR
+     ========================================================= -->
+<header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="#home" class="logo">
+            <div class="logo-badge">🍕</div>
+            <div>
+                Siddeqi<span>PizzaHut</span>
+                <small>Kabal • Swat</small>
+            </div>
+        </a>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="#home" class="active">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#delivery">Delivery</a>
+            <a href="#ai-order">AI Order</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+            <!-- Cart Button with Count Badge -->
+            <button type="button" class="nav-cart-btn" onclick="toggleCartDrawer()" aria-label="View Cart">
+                <span>🛒 Cart</span>
+                <span class="cart-count-badge" id="navCartCount">0</span>
+            </button>
+
+            <a href="#ai-order" class="nav-order-btn">
+                <span>🤖 AI Chat</span>
+            </a>
+
+            <!-- Mobile Hamburger Toggle -->
+            <button type="button" class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu" onclick="toggleMobileNav()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+
+<!-- =========================================================
+     HERO SECTION
+     ========================================================= -->
+<section class="hero" id="home">
+    <!-- Ambient Glow Orbs -->
+    <div class="hero-glow-1"></div>
+    <div class="hero-glow-2"></div>
+
+    <div class="container hero-grid">
+        <div class="hero-content">
+            <div class="hero-live-badge">
+                <span class="pulse-dot"></span>
+                <span>Open Now • Lightning Delivery Across Swat Valley</span>
+            </div>
+
+            <h1>
+                Craving Perfection?
+                <br>
+                <span class="gradient-text">Ordered by AI</span>
+                <span class="secondary-text">in Seconds.</span>
+            </h1>
+
+            <p>
+                Welcome to <strong>Siddeqi PizzaHut</strong> in Kabal, Swat. Savor handcrafted, oven-fresh pizzas, crispy golden zinger burgers, and loaded fries with our next-generation AI ordering assistant.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#menu" class="primary-btn">
+                    <span>🍕 Explore Menu</span>
+                </a>
+                <a href="#ai-order" class="secondary-btn">
+                    <span>🤖 Start AI Order</span>
+                </a>
+            </div>
+
+            <div class="hero-trust-strip">
+                <div class="trust-item">
+                    <div class="trust-icon">⭐</div>
+                    <div class="trust-text">
+                        <strong>4.9 / 5.0</strong>
+                        <span>500+ Happy Customers</span>
+                    </div>
+                </div>
+
+                <div class="trust-item">
+                    <div class="trust-icon">⚡</div>
+                    <div class="trust-text">
+                        <strong>25 - 35 Min</strong>
+                        <span>Fast Hot Delivery</span>
+                    </div>
+                </div>
+
+                <div class="trust-item">
+                    <div class="trust-icon">📍</div>
+                    <div class="trust-text">
+                        <strong>Kabal & Swat</strong>
+                        <span>Flat Rs. 120 Delivery</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero Showcase Card with Floating Chips -->
+        <div class="hero-visual">
+            <!-- Floating Chip: Fast Delivery -->
+            <div class="hero-float-card top-right">
+                <div class="float-icon">🚀</div>
+                <div class="float-info">
+                    <strong>Fast Delivery</strong>
+                    <span>Kabal • Mingora • Swat</span>
+                </div>
+            </div>
+
+            <!-- Main Showcase Dish Card -->
+            <div class="hero-main-card">
+                <div class="hero-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=900&q=85" alt="Siddeqi Chicken Tikka Pizza" fetchpriority="high">
+                    <div class="hero-dish-badge">
+                        <span>🔥 Chef's Signature</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Floating Chip: AI Order Status -->
+            <div class="hero-float-card bottom-left">
+                <div class="float-icon" style="color: var(--accent-emerald); background: #eafaf1;">🤖</div>
+                <div class="float-info">
+                    <strong>AI Ordering Live</strong>
+                    <span>WhatsApp Kitchen Sync</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- =========================================================
+     FEATURES / HIGHLIGHTS STRIP
+     ========================================================= -->
+<section class="features-bar">
+    <div class="container">
+        <div class="features-grid">
+            <div class="feature-pill-card">
+                <div class="feature-icon-box">🍕</div>
+                <div class="feature-text">
+                    <h4>Fresh Artisan Dough</h4>
+                    <p>Hand-kneaded daily, baked to crispy perfection with 100% pure cheese.</p>
+                </div>
+            </div>
+
+            <div class="feature-pill-card">
+                <div class="feature-icon-box">🤖</div>
+                <div class="feature-text">
+                    <h4>Smart AI Ordering</h4>
+                    <p>Chat naturally to customize your order, calculate bill, and confirm in seconds.</p>
+                </div>
+            </div>
+
+            <div class="feature-pill-card">
+                <div class="feature-icon-box">🚀</div>
+                <div class="feature-text">
+                    <h4>Fast & Hot Delivery</h4>
+                    <p>Insulated delivery boxes ensure piping-hot food at your doorstep.</p>
+                </div>
+            </div>
+
+            <div class="feature-pill-card">
+                <div class="feature-icon-box">💯</div>
+                <div class="feature-text">
+                    <h4>100% Halal & Pure</h4>
+                    <p>Strict hygiene standards and the freshest local ingredients in Swat.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- =========================================================
+     MENU SECTION
+     ========================================================= -->
+<section class="section menu-section" id="menu">
+    <div class="container">
+        <div class="section-heading">
+            <span class="section-tag">Chef's Gourmet Selection</span>
+            <h2>Choose Your Favorite</h2>
+            <p>Freshly baked artisan pizzas, crispy chicken burgers, loaded seasoned fries, and chilled beverages. Click <strong>"Order with AI"</strong> on any item to place your order instantly!</p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="menu-filter-tabs">
+            <button type="button" class="filter-tab-btn active" onclick="filterMenu('all', this)">
+                <span>🌟 All Items</span>
+            </button>
+            <button type="button" class="filter-tab-btn" onclick="filterMenu('pizza', this)">
+                <span>🍕 Pizzas</span>
+            </button>
+            <button type="button" class="filter-tab-btn" onclick="filterMenu('burger', this)">
+                <span>🍔 Burgers</span>
+            </button>
+            <button type="button" class="filter-tab-btn" onclick="filterMenu('fries', this)">
+                <span>🍟 Fries & Sides</span>
+            </button>
+            <button type="button" class="filter-tab-btn" onclick="filterMenu('drink', this)">
+                <span>🥤 Beverages</span>
+            </button>
+        </div>
+
+        <!-- Menu Cards Grid -->
+        <div class="menu-grid">
+
+            <!-- 1. Chicken Tikka Pizza -->
+            <div class="menu-card" data-category="pizza">
+                <div class="menu-card-media">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80" alt="Chicken Tikka Pizza" loading="lazy">
+                    <span class="card-badge-top-left bestseller">🔥 Bestseller</span>
+                    <span class="card-rating-badge"><span>⭐</span> 4.9</span>
+                </div>
+                <div class="menu-card-body">
+                    <div class="card-header-row">
+                        <h3>Chicken Tikka Pizza</h3>
+                        <span class="menu-price">Rs. 2000</span>
+                    </div>
+                    <p>Tender spiced chicken tikka chunks, rich pizza sauce, fresh mozzarella cheese, sliced onions, and aromatic green chilies on our hand-tossed crust.</p>
+                    <div class="menu-card-footer">
+                        <div class="card-tags">
+                            <span class="food-tag">🍕 Large</span>
+                            <span class="food-tag">Spicy</span>
+                        </div>
+                    </div>
+                    <div class="card-action-row">
+                        <div class="quantity-stepper">
+                            <button type="button" class="qty-btn" onclick="changeCardQty(this, -1)" aria-label="Decrease quantity">−</button>
+                            <span class="qty-val">1</span>
+                            <button type="button" class="qty-btn" onclick="changeCardQty(this, 1)" aria-label="Increase quantity">+</button>
+                        </div>
+                        <button type="button" class="add-to-cart-btn" onclick="addToCartFromCard(this, 'Chicken Tikka Pizza', 2000, 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80')">
+                            <span>Add to Cart 🛒</span>
+                        </button>
+                        <button type="button" class="instant-ai-btn" onclick="instantOrderFromCard(this, 'Chicken Tikka Pizza', 2000)" title="Order directly with AI">
+                            <span>Order with AI 🤖</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Chicken Fajita Pizza -->
+            <div class="menu-card" data-category="pizza">
+                <div class="menu-card-media">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80" alt="Chicken Fajita Pizza" loading="lazy">
+                    <span class="card-badge-top-left popular">🌶️ Flavor Burst</span>
+                    <span class="card-rating-badge"><span>⭐</span> 4.8</span>
+                </div>
+                <div class="menu-card-body">
+                    <div class="card-header-row">
+                        <h3>Chicken Fajita Pizza</h3>
+                        <span class="menu-price">Rs. 1500</span>
+                    </div>
+                    <p>Mexican-style fajita chicken, sweet bell peppers, caramelized onions, black olives, and abundant molten mozzarella cheese.</p>
+                    <div class="menu-card-footer">
+                        <div class="card-tags">
+                            <span class="food-tag">🍕 Medium</span>
+                            <span class="food-tag">Savory</span>
+                        </div>
+                    </div>
+                    <div class="card-action-row">
+                        <div class="quantity-stepper">
+                            <button type="button" class="qty-btn" onclick="changeCardQty(this, -1)" aria-label="Decrease quantity">−</button>
+                            <span class="qty-val">1</span>
+                            <button type="button" class="qty-btn" onclick="changeCardQty(this, 1)" aria-label="Increase quantity">+</button>
+                        </div>
+                        <button type="button" class="add-to-cart-btn" onclick="addToCartFromCard(this, 'Chicken Fajita Pizza', 1500, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80')">
+                            <span>Add to Cart 🛒</span>
+                        </button>
+                        <button type="button" class="instant-ai-btn" onclick="instantOrderFromCard(this, 'Chicken Fajita Pizza', 1500)" title="Order directly with AI">
+                            <span>Order with AI 🤖</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Cheese Pizza -->
+            <div class="menu-card" data-category="pizza">
+                <div class="menu-card-media">
+                    <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=800&q=80" alt="Cheese Pizza" loading="lazy">
+                    <span class="card-badge-top-left">🧀 Extra Cheesy</span>
+                    <span class="card-rating-badge"><span>⭐</span> 4.9</span>
+                </div>
+                <div class="menu-card-body">
+                    <div class="card-header-row">
+                        <h3>Cheese Pizza</h3>
+                        <span class="menu-price">Rs. 1700</span>
+                    </div>
+                    <p>Classic Italian pizza loaded with generous double layers of 100% pure melted mozzarella cheese and our signature seasoned herb tomato sauce.</p>
+                    <div class="menu-card-footer">
+                        <div class="card-tags">
+                            <span class="food-tag">🍕 Cheesy</span>
+                            <span class="food-tag">Vegetarian</span>
+                        </div>
+                    </div>
+                    <div class="card-action-row">
+                        <div class="quantity-stepper">
+                            <button type="button" class="qty-btn" onclick="changeCardQty(this, -1)" aria-label="Decrease quantity">−</button>
+                            <span class="qty-val">1</span>
+                            <button type="button" class="qty-btn" onclick="changeCardQty(this, 1)" aria-label="Increase quantity">+</button>
+                        </div>
+                        <button type="button" class="add-to-cart-btn" onclick="addToCartFromCard(this, 'Cheese Pizza', 1700, 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=800&q=80')">
+                            <span>Add to Cart 🛒</span>
+                        </button>
+                        <button type="button" class="instant-ai-btn" onclick="instantOrderFromCard(this, 'Cheese Pizza', 1700)" title="Order directly with AI">
+                            <span>Order with AI 🤖</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Zinger Burger -->
+            <div class="menu-card" data-category="burger">
+                <div class="menu-card-media">
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80" alt="Zinger Burger" loading="lazy">
+                    <span class="card-badge-top-left bestseller">💥 Top Crunch</span>
+                    <span class="card-rating-badge"><span>⭐</span> 4.9</span>
+                </div>
+                <div class="menu-card-body">
+                    <div class="card-header-row">
+                        <h3>Zinger Burger</h3>
+                        <span class="menu-price">Rs. 550</span>
+                    </div>
+                    <p>Extra-crispy whole fried chicken breast fillet, creamy secret garlic mayo sauce, and crisp fresh iceberg lettuce in a toasted sesame bun.</p>
+                    <div class="menu-card-footer">
+                        <div class="card-tags">
+                            <span class="food-tag">🍔 Crispy</span>
+                            <span class="food-tag">Bestseller</span>
+                        </div>
+                    </div>
+                    <div class="card-action-row">
+                        <div class="quantity-stepper">
+                            <button type="button" class="qty-btn" onclick="changeCardQty(this, -1)" aria-label="Decrease quantity">−</button>
+                            <span class="qty-val">1</span>
+                            <button type="button" class="qty-btn" onclick="changeCardQty(this, 1)" aria-label="Increase quantity">+</button>
+                        </div>
+                        <button type="button" class="add-to-cart-btn" onclick="addToCartFromCard(this, 'Zinger Burger', 550, 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80')">
+                            <span>Add to Cart 🛒</span>
+                        </button>
+                        <button type="button" class="instant-ai-btn" onclick="instantOrderFromCard(this, 'Zinger Burger', 550)" title="Order directly with AI">
+                            <span>Order with AI 🤖</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Chicken Burger -->
+            <div class="menu-card" data-category="burger">
+                <div class="menu-card-media">
+                    <img src="https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=800&q=80" alt="Chicken Burger" loading="lazy">
+                    <span class="card-badge-top-left popular">🍔 Juicy Patty</span>
+                    <span class="card-rating-badge"><span>⭐</span> 4.7</span>
+                </div>
+                <div class="menu-card-body">
+                    <div class="card-header-row">
+                        <h3>Chicken Burger</h3>
+                        <span class="menu-price">Rs. 450</span>
+                    </div>
+                    <p>Juicy seasoned minced chicken patty, crisp pickles, fresh tomatoes, melted cheddar cheese, and house special burger spread on a warm brioche bun.</p>
+                    <div class="menu-card-footer">
+                        <div class="card-tags">
+                            <span class="food-tag">🍔 Tender</span>
+                            <span class="food-tag">Classic</span>
+                        </div>
+                    </div>
+                    <div class="card-action-row">
+                        <div class="quantity-stepper">
+                            <button type="button" class="qty-btn" onclick="changeCardQty(this, -1)" aria-label="Decrease quantity">−</button>
+                            <span class="qty-val">1</span>
+                            <button type="button" class="qty-btn" onclick="changeCardQty(this, 1)" aria-label="Increase quantity">+</button>
+                        </div>
+                        <button type="button" class="add-to-cart-btn" onclick="addToCartFromCard(this, 'Chicken Burger', 450, 'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=800&q=80')">
+                            <span>Add to Cart 🛒</span>
+                        </button>
+                        <button type="button" class="instant-ai-btn" onclick="instantOrderFromCard(this, 'Chicken Burger', 450)" title="Order directly with AI">
+                            <span>Order with AI 🤖</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Loaded Fries -->
+            <div class="menu-card" data-category="fries">
+                <div class="menu-card-media">
+                    <img src="https://images.unsplash.com/photo-1585109649139-366815a0d713?auto=format&fit=crop&w=800&q=80" alt="Loaded Fries" loading="lazy">
+                    <span class="card-badge-top-left bestseller">🧀 Loaded Special</span>
+                    <span class="card-rating-badge"><span>⭐</span> 4.8</span>
+                </div>
+                <div class="menu-card-body">
+                    <div class="card-header-row">
+                        <h3>Loaded Fries</h3>
+                        <span class="menu-price">Rs. 300</span>
+                    </div>
+                    <p>Crispy golden fries smothered in warm velvety cheddar sauce, tender chicken chunks, pickled jalapeños, garlic mayo drizzle, and spicy chili seasoning.</p>
+                    <div class="menu-card-footer">
+                        <div class="card-tags">
+                            <span class="food-tag">🍟 Cheesy</span>
+                            <span class="food-tag">Loaded</span>
+                        </div>
+                    </div>
+                    <div class="card-action-row">
+                        <div class="quantity-stepper">
+                            <button type="button" class="qty-btn" onclick="changeCardQty(this, -1)" aria-label="Decrease quantity">−</button>
+                            <span class="qty-val">1</span>
+                            <button type="button" class="qty-btn" onclick="changeCardQty(this, 1)" aria-label="Increase quantity">+</button>
+                        </div>
+                        <button type="button" class="add-to-cart-btn" onclick="addToCartFromCard(this, 'Loaded Fries', 300, 'https://images.unsplash.com/photo-1585109649139-366815a0d713?auto=format&fit=crop&w=800&q=80')">
+                            <span>Add to Cart 🛒</span>
+                        </button>
+                        <button type="button" class="instant-ai-btn" onclick="instantOrderFromCard(this, 'Loaded Fries', 300)" title="Order directly with AI">
+                            <span>Order with AI 🤖</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. Regular Fries -->
+            <div class="menu-card" data-category="fries">
+                <div class="menu-card-media">
+                    <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=800&q=80" alt="Regular Fries" loading="lazy">
+                    <span class="card-badge-top-left">🍟 Golden Crunch</span>
+                    <span class="card-rating-badge"><span>⭐</span> 4.6</span>
+                </div>
+                <div class="menu-card-body">
+                    <div class="card-header-row">
+                        <h3>Regular Fries</h3>
+                        <span class="menu-price">Rs. 220</span>
+                    </div>
+                    <p>Freshly cut premium potato fries, flash-fried to golden perfection, lightly salted, and served with rich tomato dipping ketchup.</p>
+                    <div class="menu-card-footer">
+                        <div class="card-tags">
+                            <span class="food-tag">🍟 Crisp</span>
+                            <span class="food-tag">Side</span>
+                        </div>
+                    </div>
+                    <div class="card-action-row">
+                        <div class="quantity-stepper">
+                            <button type="button" class="qty-btn" onclick="changeCardQty(this, -1)" aria-label="Decrease quantity">−</button>
+                            <span class="qty-val">1</span>
+                            <button type="button" class="qty-btn" onclick="changeCardQty(this, 1)" aria-label="Increase quantity">+</button>
+                        </div>
+                        <button type="button" class="add-to-cart-btn" onclick="addToCartFromCard(this, 'Regular Fries', 220, 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=800&q=80')">
+                            <span>Add to Cart 🛒</span>
+                        </button>
+                        <button type="button" class="instant-ai-btn" onclick="instantOrderFromCard(this, 'Regular Fries', 220)" title="Order directly with AI">
+                            <span>Order with AI 🤖</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. Pepsi -->
+            <div class="menu-card" data-category="drink">
+                <div class="menu-card-media">
+                    <img src="https://images.unsplash.com/photo-1629203851122-3726ecdf080e?auto=format&fit=crop&w=800&q=80" alt="Pepsi" loading="lazy">
+                    <span class="card-badge-top-left">🥤 Ice Chilled</span>
+                    <span class="card-rating-badge"><span>⭐</span> 4.9</span>
+                </div>
+                <div class="menu-card-body">
+                    <div class="card-header-row">
+                        <h3>Pepsi</h3>
+                        <span class="menu-price">Rs. 250</span>
+                    </div>
+                    <p>Ice-cold refreshing carbonated cola with bubbly fizz, served chilled to accompany your steaming hot pizza and burger meal.</p>
+                    <div class="menu-card-footer">
+                        <div class="card-tags">
+                            <span class="food-tag">🥤 Chilled</span>
+                            <span class="food-tag">Beverage</span>
+                        </div>
+                    </div>
+                    <div class="card-action-row">
+                        <div class="quantity-stepper">
+                            <button type="button" class="qty-btn" onclick="changeCardQty(this, -1)" aria-label="Decrease quantity">−</button>
+                            <span class="qty-val">1</span>
+                            <button type="button" class="qty-btn" onclick="changeCardQty(this, 1)" aria-label="Increase quantity">+</button>
+                        </div>
+                        <button type="button" class="add-to-cart-btn" onclick="addToCartFromCard(this, 'Pepsi', 250, 'https://images.unsplash.com/photo-1629203851122-3726ecdf080e?auto=format&fit=crop&w=800&q=80')">
+                            <span>Add to Cart 🛒</span>
+                        </button>
+                        <button type="button" class="instant-ai-btn" onclick="instantOrderFromCard(this, 'Pepsi', 250)" title="Order directly with AI">
+                            <span>Order with AI 🤖</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9. 7UP -->
+            <div class="menu-card" data-category="drink">
+                <div class="menu-card-media">
+                    <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=80" alt="7UP" loading="lazy">
+                    <span class="card-badge-top-left">🍋 Crisp Citrus</span>
+                    <span class="card-rating-badge"><span>⭐</span> 4.8</span>
+                </div>
+                <div class="menu-card-body">
+                    <div class="card-header-row">
+                        <h3>7UP</h3>
+                        <span class="menu-price">Rs. 200</span>
+                    </div>
+                    <p>Chilled sparkling lemon-lime soda with crisp clean citrus bubbles to refresh your palate after every delicious bite.</p>
+                    <div class="menu-card-footer">
+                        <div class="card-tags">
+                            <span class="food-tag">🍋 Lemon-Lime</span>
+                            <span class="food-tag">Cold</span>
+                        </div>
+                    </div>
+                    <div class="card-action-row">
+                        <div class="quantity-stepper">
+                            <button type="button" class="qty-btn" onclick="changeCardQty(this, -1)" aria-label="Decrease quantity">−</button>
+                            <span class="qty-val">1</span>
+                            <button type="button" class="qty-btn" onclick="changeCardQty(this, 1)" aria-label="Increase quantity">+</button>
+                        </div>
+                        <button type="button" class="add-to-cart-btn" onclick="addToCartFromCard(this, '7UP', 200, 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=80')">
+                            <span>Add to Cart 🛒</span>
+                        </button>
+                        <button type="button" class="instant-ai-btn" onclick="instantOrderFromCard(this, '7UP', 200)" title="Order directly with AI">
+                            <span>Order with AI 🤖</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- =========================================================
+     DELIVERY INFORMATION
+     ========================================================= -->
+<section class="section delivery-section" id="delivery">
+    <div class="container">
+        <div class="section-heading">
+            <span class="section-tag">Convenient & Reliable</span>
+            <h2>Order Your Way Across Swat</h2>
+            <p>Enjoy blazing-fast home delivery or skip the queue with instant takeaway pickup at our Kabal kitchen counter.</p>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-icon-wrapper">🚚</div>
+                <h3>Home Delivery</h3>
+                <p>Hot, insulated delivery to all major neighborhoods across the valley with real-time AI updates.</p>
+                <div class="delivery-zones">
+                    <span class="zone-chip">Mingora</span>
+                    <span class="zone-chip">Kabal</span>
+                    <span class="zone-chip">Makan Bagh</span>
+                    <span class="zone-chip">Hazara</span>
+                    <span class="zone-chip">Gul Jaba</span>
+                    <span class="zone-chip">Sirsani</span>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="info-icon-wrapper">💰</div>
+                <h3>Flat Delivery Fee</h3>
+                <p>Standard delivery fee is just <strong>Rs. 120</strong> regardless of distance in our delivery zones. Counter pickup orders have <strong>Rs. 0</strong> fee!</p>
+            </div>
+
+            <div class="info-card">
+                <div class="info-icon-wrapper">🛍️</div>
+                <h3>Express Pickup</h3>
+                <p>Order ahead with our AI assistant, specify pickup time, and collect your food hot from our counter with zero waiting time.</p>
+            </div>
+
+            <div class="info-card">
+                <div class="info-icon-wrapper">📍</div>
+                <h3>Restaurant Location</h3>
+                <p>Siddeqi PizzaHut<br>Main Bazaar Road, Kabal, Swat, Khyber Pakhtunkhwa.<br><strong>Open 11:00 AM - 01:00 AM</strong></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- =========================================================
+     AI ORDERING SECTION (CORE CHAT CONSOLE)
+     ========================================================= -->
+<section class="ai-section" id="ai-order">
+    <div class="ai-container">
+        <div class="ai-heading">
+            <span class="ai-pill-tag">✨ Next-Generation Conversational Ordering</span>
+            <h2>Order with Our <span>AI Assistant</span></h2>
+            <p>Chat naturally to browse the menu, customize toppings, calculate totals, and send your order straight to our kitchen!</p>
+            <div class="ai-features-ribbon">
+                <div class="ai-feat-item"><span>✔</span> Instant Item Calculations</div>
+                <div class="ai-feat-item"><span>✔</span> Delivery & Pickup Support</div>
+                <div class="ai-feat-item"><span>✔</span> Direct WhatsApp Kitchen Sync</div>
+            </div>
+        </div>
+
+        <!-- Chat Wrapper Console -->
+        <div class="chat-wrapper">
+
+            <!-- Chat Header -->
+            <div class="chat-header">
+                <div class="chat-header-left">
+                    <div class="ai-avatar">
+                        🤖
+                        <span class="ai-status-pulse"></span>
+                    </div>
+                    <div class="chat-header-titles">
+                        <h3>Siddeqi PizzaHut AI</h3>
+                        <p><span class="online-dot"></span> Online • Powered by n8n Intelligent Agent</p>
+                    </div>
+                </div>
+
+                <button type="button" id="newOrderBtn" class="new-order-btn" title="Clear conversation and start a new order">
+                    🛒 New Order
+                </button>
+            </div>
+
+            <!-- Chat Messages Container (Handled by script.js) -->
+            <div id="chatMessages" aria-live="polite">
+                <!-- Messages are inserted dynamically by script.js -->
+            </div>
+
+            <!-- Quick Suggestion Chips (Tapping inputs message and focuses) -->
+            <div class="chat-suggestions-bar">
+                <button type="button" class="suggestion-chip" onclick="applySuggestion('I want to order 1 Chicken Tikka Pizza')">
+                    🍕 1 Chicken Tikka Pizza
+                </button>
+                <button type="button" class="suggestion-chip" onclick="applySuggestion('I want 1 Zinger Burger and 1 Loaded Fries')">
+                    🍔 Zinger Burger + Fries
+                </button>
+                <button type="button" class="suggestion-chip" onclick="applySuggestion('What is on your menu?')">
+                    📜 Show Full Menu
+                </button>
+                <button type="button" class="suggestion-chip" onclick="applySuggestion('What are your delivery areas and fee?')">
+                    🚚 Delivery Areas & Fee
+                </button>
+                <button type="button" class="suggestion-chip" onclick="applySuggestion('I would like to order for pickup')">
+                    🛍️ Takeaway / Pickup
+                </button>
+            </div>
+
+            <!-- Chat Input Area (Handled by script.js) -->
+            <div class="chat-input-area">
+                <input
+                    type="text"
+                    id="messageInput"
+                    placeholder="Type your order or question (e.g., '1 Large Tikka Pizza and 1 Pepsi to Kabal')..."
+                    autocomplete="off"
+                    aria-label="Message"
+                >
+
+                <button type="button" id="sendButton" aria-label="Send message">
+                    <span>Send</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- =========================================================
+     TESTIMONIALS / REVIEWS
+     ========================================================= -->
+<section class="reviews-section" id="reviews">
+    <div class="container">
+        <div class="section-heading">
+            <span class="section-tag">Customer Love</span>
+            <h2>What Swat Foodies Say</h2>
+            <p>Over 500+ happy customers trust Siddeqi PizzaHut for hot food, great taste, and effortless AI ordering.</p>
+        </div>
+
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                <p class="review-text">"The Chicken Tikka Pizza is by far the best in Swat! Perfectly melted cheese, flavorful crust, and ordering with the AI assistant took less than 30 seconds. Food was delivered in 25 mins hot!"</p>
+                <div class="reviewer-meta">
+                    <div class="reviewer-avatar">U</div>
+                    <div class="reviewer-info">
+                        <strong>Usman Khan</strong>
+                        <span>Mingora, Swat</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                <p class="review-text">"Ordering food via AI seemed futuristic, but it calculated my subtotal, added delivery fee, and confirmed my WhatsApp instantly. The Zinger Burger was crunchy and juicy!"</p>
+                <div class="reviewer-meta">
+                    <div class="reviewer-avatar">A</div>
+                    <div class="reviewer-info">
+                        <strong>Ahmed Ali</strong>
+                        <span>Kabal, Swat</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                <p class="review-text">"Loaded fries are super generous with cheese and chicken chunks! Great value for money and the pickup order was ready on the counter right on time."</p>
+                <div class="reviewer-meta">
+                    <div class="reviewer-avatar">B</div>
+                    <div class="reviewer-info">
+                        <strong>Bilal Farooq</strong>
+                        <span>Makan Bagh, Swat</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+<footer id="contact">
+    <div class="footer-container">
+        <div class="footer-column">
+            <div class="logo" style="color: white; margin-bottom: 14px;">
+                <div class="logo-badge">🍕</div>
+                <div>Siddeqi<span>PizzaHut</span></div>
+            </div>
+            <p>Delicious artisan food and an effortless AI-powered ordering experience in Kabal, Swat. Fresh ingredients, prompt delivery, and taste you will remember.</p>
+            <a href="https://wa.me/923440114925" target="_blank" rel="noopener" class="footer-badge-link">
+                <span>💬 WhatsApp Order Support</span>
+            </a>
+        </div>
+
+        <div class="footer-column">
+            <h3>Quick Links</h3>
+            <p><a href="#home">Home</a></p>
+            <p><a href="#menu">Our Menu</a></p>
+            <p><a href="#delivery">Delivery Info</a></p>
+            <p><a href="#ai-order">AI Food Assistant</a></p>
+            <p><a href="#reviews">Customer Reviews</a></p>
+        </div>
+
+        <div class="footer-column">
+            <h3>Contact Us</h3>
+            <div class="footer-contact-item">
+                <span>📍</span>
+                <span>Main Bazaar, Kabal, Swat</span>
+            </div>
+            <div class="footer-contact-item">
+                <span>📞</span>
+                <a href="tel:+923440114925">+92 344 0114925</a>
+            </div>
+            <div class="footer-contact-item">
+                <span>🕒</span>
+                <span>Mon - Sun: 11:00 AM - 01:00 AM</span>
+            </div>
+        </div>
+
+        <div class="footer-column">
+            <h3>Delivery Areas</h3>
+            <p>Mingora • Kabal • Makan Bagh • Hazara • Gul Jaba • Sirsani</p>
+            <p style="margin-top: 10px; font-weight: 700; color: #ff385c;">Flat Delivery: Rs. 120 only</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div>© 2026 Siddeqi PizzaHut. All rights reserved.</div>
+        <div>Designed with ❤️ for authentic taste & modern AI convenience in Swat.</div>
+    </div>
+</footer>
+
+
+<!-- =========================================================
+     FLOATING ACTION WIDGETS
+     ========================================================= -->
+<div class="floating-actions-container">
+    <!-- Cart Floating Shortcut -->
+    <button type="button" class="float-action-btn float-cart-btn" onclick="toggleCartDrawer()" aria-label="Open Cart Drawer" style="background: #0f172a; box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
+        🛒
+        <span class="float-tooltip">View Cart</span>
+    </button>
+
+    <!-- Quick AI Chat shortcut -->
+    <a href="#ai-order" class="float-action-btn float-ai-chat-btn" aria-label="Open AI chat ordering">
+        🤖
+        <span class="float-tooltip">Chat with AI</span>
+    </a>
+
+    <!-- Direct WhatsApp support shortcut -->
+    <a href="https://wa.me/923440114925?text=Hello%20Siddeqi%20PizzaHut,%20I%20would%20like%20to%20order!" target="_blank" rel="noopener" class="float-action-btn float-whatsapp-btn" aria-label="Contact via WhatsApp">
+        💬
+        <span class="float-tooltip">WhatsApp Support</span>
+    </a>
+</div>
+
+<!-- Floating Cart Bar (Appears automatically when items > 0) -->
+<div class="floating-cart-bar" id="floatingCartBar" onclick="toggleCartDrawer()">
+    <div class="floating-cart-left">
+        <span class="floating-cart-badge" id="floatingCartCount">0</span>
+        <div class="floating-cart-info">
+            <strong>Items in Cart</strong>
+            <span id="floatingCartTotal">Rs. 0</span>
+        </div>
+    </div>
+    <div class="floating-cart-right">
+        <span>Review & Place Order</span> 🤖 →
+    </div>
+</div>
+
+<!-- Slide-over Cart Drawer Backdrop -->
+<div class="cart-backdrop" id="cartBackdrop" onclick="toggleCartDrawer()"></div>
+
+<!-- Slide-over Cart Drawer -->
+<aside class="cart-drawer" id="cartDrawer" aria-label="Shopping Cart">
+    <div class="cart-drawer-header">
+        <h3>🛒 Your Food Cart</h3>
+        <button type="button" class="close-cart-btn" onclick="toggleCartDrawer()" aria-label="Close cart">✕</button>
+    </div>
+
+    <!-- Items container handled by script.js -->
+    <div class="cart-items-list" id="cartItemsList">
+        <!-- Rendered by updateCartUI() -->
+    </div>
+
+    <div class="cart-drawer-footer">
+        <div class="cart-summary-line">
+            <span>Subtotal</span>
+            <strong id="cartSubtotal">Rs. 0</strong>
+        </div>
+        <div class="cart-summary-line">
+            <span>Estimated Delivery Fee</span>
+            <span>Rs. 120 (or Free Pickup)</span>
+        </div>
+        <div class="cart-total-line">
+            <span>Estimated Total</span>
+            <strong id="cartTotalWithFee">Rs. 0</strong>
+        </div>
+        <div class="cart-drawer-actions">
+            <button type="button" class="place-order-ai-btn" id="placeOrderBtn" onclick="placeOrderWithAI()">
+                <span>🚀 Place Order with AI Assistant</span>
+            </button>
+            <button type="button" class="clear-cart-btn" onclick="clearCart()">
+                Clear Cart
+            </button>
+        </div>
+    </div>
+</aside>
+
+<!-- Floating Toast Notification -->
+<div id="cartToast" class="cart-toast" aria-live="polite"></div>
+
+
+
+<!-- =========================================================
+     FRONTEND UI INTERACTION HELPERS
+     (Does NOT alter script.js or n8n core logic)
+     ========================================================= -->
+<script>
+    // 1. Mobile Navigation Toggle
+    function toggleMobileNav() {
+        const navLinks = document.getElementById('navLinks');
+        const mobileToggle = document.getElementById('mobileToggle');
+        if (navLinks && mobileToggle) {
+            navLinks.classList.toggle('active');
+            mobileToggle.classList.toggle('active');
+        }
+    }
+
+    // Close mobile nav when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            const navLinks = document.getElementById('navLinks');
+            const mobileToggle = document.getElementById('mobileToggle');
+            if (navLinks && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                if (mobileToggle) mobileToggle.classList.remove('active');
+            }
+        });
+    });
+
+    // 2. Navbar scroll elevation
+    window.addEventListener('scroll', () => {
+        const navbar = document.getElementById('navbar');
+        if (navbar) {
+            if (window.scrollY > 30) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        }
+    });
+
+    // 3. Category Filter
+    function filterMenu(category, btn) {
+        // Update active tab button
+        document.querySelectorAll('.filter-tab-btn').forEach(b => b.classList.remove('active'));
+        if (btn) btn.classList.add('active');
+
+        // Filter cards
+        const cards = document.querySelectorAll('.menu-card');
+        cards.forEach(card => {
+            const cardCat = card.getAttribute('data-category');
+            if (category === 'all' || cardCat === category) {
+                card.style.display = 'flex';
+                card.style.animation = 'slideDownFade 0.4s ease forwards';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    // 4. Quick Order helper from menu card
+    function quickOrder(itemName) {
+        const input = document.getElementById('messageInput');
+        const aiSection = document.getElementById('ai-order');
+        if (aiSection) {
+            aiSection.scrollIntoView({ behavior: 'smooth' });
+        }
+        if (input) {
+            input.value = `I'd like to order 1 ${itemName} please.`;
+            input.focus();
+        }
+    }
+
+    // 5. Apply suggestion chip into input
+    function applySuggestion(promptText) {
+        const input = document.getElementById('messageInput');
+        if (input) {
+            input.value = promptText;
+            input.focus();
+        }
+    }
+</script>
+
+
+<!-- =========================================================
+     ORIGINAL RESTAURANT AI SCRIPT (CORE LOGIC UNCHANGED)
+     ========================================================= -->
+
+     <script src="script.js"></script>
+
+</body>
+</html>
