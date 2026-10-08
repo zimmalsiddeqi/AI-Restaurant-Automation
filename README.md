@@ -52,3 +52,4 @@ An intelligent, modern, and fully responsive restaurant website and AI ordering 
 ## 📄 License
 
 This project is licensed under the MIT License.
+

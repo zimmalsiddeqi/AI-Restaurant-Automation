@@ -198,42 +198,55 @@ function renderOrderSummary(text) {
 
     return `
         <div class="order-summary-card">
-            <div class="order-summary-badge-bar">
-                <span class="order-summary-badge">📋 ORDER SUMMARY</span>
-                <span class="order-summary-status">Review & Confirm</span>
-            </div>
-
-            ${itemsHTML ? `
-                <div class="summary-items-box">
-                    <div class="summary-box-label">Items Selected:</div>
-                    ${itemsHTML}
+            <div class="order-summary-header-row">
+                <div class="summary-badge-group">
+                    <span class="order-summary-badge">📋 ORDER SUMMARY</span>
+                    <span class="order-summary-status">Ready</span>
                 </div>
-            ` : ''}
-
-            <div class="summary-card-pricing">
-                ${subtotal ? `<div class="summary-price-row"><span>Subtotal:</span><strong>${escapeHtml(subtotal)}</strong></div>` : ''}
-                ${delivery ? `<div class="summary-price-row"><span>Delivery:</span><strong>${escapeHtml(delivery)}</strong></div>` : ''}
-                ${total ? `<div class="summary-price-row total-row"><span>💰 TOTAL:</span><strong class="highlight-total">${escapeHtml(total)}</strong></div>` : ''}
+                ${total ? `<span class="summary-header-total">${escapeHtml(total)}</span>` : ''}
             </div>
 
-            <div class="summary-card-details">
-                <div class="details-grid">
-                    ${name ? `<div class="detail-pill"><span>👤 Name:</span> <strong>${escapeHtml(name)}</strong></div>` : ''}
-                    ${phone ? `<div class="detail-pill"><span>📞 Phone:</span> <strong>${escapeHtml(phone)}</strong></div>` : ''}
-                    ${orderType ? `<div class="detail-pill"><span>🚚 Order Type:</span> <strong>${escapeHtml(orderType)}</strong></div>` : ''}
-                    ${address ? `<div class="detail-pill full-width"><span>📍 Address:</span> <strong>${escapeHtml(address)}</strong></div>` : ''}
-                    ${instructions && instructions.toLowerCase() !== 'none' ? `<div class="detail-pill full-width"><span>📝 Instructions:</span> <em>${escapeHtml(instructions)}</em></div>` : ''}
+            <div class="summary-compact-body">
+                ${itemsHTML ? `
+                    <div class="summary-items-box">
+                        ${itemsHTML}
+                    </div>
+                ` : ''}
+
+                <div class="summary-pricing-bar">
+                    ${subtotal ? `<span>Sub: <b>${escapeHtml(subtotal)}</b></span>` : ''}
+                    ${delivery ? `<span>Delivery: <b>${escapeHtml(delivery)}</b></span>` : ''}
+                    ${total ? `<span class="total-highlight">Total: <b>${escapeHtml(total)}</b></span>` : ''}
+                </div>
+
+                <div class="summary-details-compact">
+                    ${(name || phone) ? `
+                        <div class="summary-detail-row">
+                            ${name ? `<span class="detail-item" title="Name">👤 <b>${escapeHtml(name)}</b></span>` : ''}
+                            ${phone ? `<span class="detail-item" title="Phone">📞 <b>${escapeHtml(phone)}</b></span>` : ''}
+                        </div>
+                    ` : ''}
+                    ${(orderType || address) ? `
+                        <div class="summary-detail-row">
+                            ${orderType ? `<span class="detail-item" title="Order Type">🚚 <b>${escapeHtml(orderType)}</b></span>` : ''}
+                            ${address ? `<span class="detail-item" title="${escapeHtml(address)}">📍 <b>${escapeHtml(address)}</b></span>` : ''}
+                        </div>
+                    ` : ''}
+                    ${instructions && instructions.toLowerCase() !== 'none' ? `
+                        <div class="summary-instructions-row">
+                            <span>📝 <em>${escapeHtml(instructions)}</em></span>
+                        </div>
+                    ` : ''}
                 </div>
             </div>
 
             <div class="summary-card-cta">
-                <p class="summary-question">${escapeHtml(question)}</p>
                 <div class="summary-action-buttons">
                     <button type="button" class="btn-confirm-order-now" onclick="sendChatAction('Yes, please place this order')">
-                        <span>✅ Yes, Place Order</span>
+                        <span>✅ Place Order</span>
                     </button>
                     <button type="button" class="btn-modify-order-now" onclick="sendChatAction('I want to modify my order')">
-                        <span>✏️ Change Details</span>
+                        <span>✏️ Change</span>
                     </button>
                 </div>
             </div>
@@ -243,7 +256,14 @@ function renderOrderSummary(text) {
 
 function renderMenuCard(text) {
     const lines = text.split("\n").map(l => l.trim()).filter(Boolean);
-    let html = `<div class="chat-menu-card"><div class="chat-menu-title">🍕 SIDDEQI PIZZAHUT MENU</div>`;
+    let html = `
+        <div class="chat-menu-card">
+            <div class="chat-menu-header">
+                <span class="chat-menu-badge">🍕 MENU</span>
+                <span class="chat-menu-title-compact">Siddeqi PizzaHut</span>
+            </div>
+            <div class="chat-menu-scrollable">
+    `;
 
     lines.forEach(line => {
         if (/^(?:🍕|🍔|🍟|🥤|🚚)\s+[A-Z\s]+$/i.test(line) || (/^[A-Z\s]{4,}$/.test(line) && !line.includes("MENU"))) {
@@ -254,7 +274,6 @@ function renderMenuCard(text) {
                 html += `
                     <div class="chat-menu-item-row">
                         <span class="chat-item-name">${escapeHtml(parts[0].trim())}</span>
-                        <span class="chat-item-dots"></span>
                         <strong class="chat-item-price">${escapeHtml(parts[1].trim())}</strong>
                     </div>
                 `;
@@ -268,7 +287,10 @@ function renderMenuCard(text) {
         }
     });
 
-    html += `</div>`;
+    html += `
+            </div>
+        </div>
+    `;
     return html;
 }
 
@@ -276,7 +298,7 @@ function renderNotificationAlert(text) {
     return `
         <div class="notification-alert-card">
             <div class="alert-card-header">
-                <span>⚠️ Order Received — Notice</span>
+                <span>⚠️ Order Notice</span>
             </div>
             <p class="alert-card-text">
                 ${escapeHtml(text)}
@@ -293,9 +315,36 @@ function renderNotificationAlert(text) {
 function renderSafeRichText(text) {
     let safe = escapeHtml(text);
     safe = safe.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-    safe = safe.replace(/\n\n/g, '<div class="chat-spacer"></div>');
-    safe = safe.replace(/\n/g, '<br>');
-    return safe;
+    const lines = safe.split('\n');
+    let formatted = [];
+    let inList = false;
+    for (let line of lines) {
+        line = line.trim();
+        if (!line) {
+            if (inList) {
+                formatted.push('</ul>');
+                inList = false;
+            }
+            continue;
+        }
+        if (/^[•\-\*]\s+/.test(line)) {
+            if (!inList) {
+                formatted.push('<ul class="chat-bullet-list">');
+                inList = true;
+            }
+            formatted.push(`<li>${line.replace(/^[•\-\*]\s+/, '')}</li>`);
+        } else {
+            if (inList) {
+                formatted.push('</ul>');
+                inList = false;
+            }
+            formatted.push(`<p class="chat-text-line">${line}</p>`);
+        }
+    }
+    if (inList) {
+        formatted.push('</ul>');
+    }
+    return formatted.join('');
 }
 
 function addBotMessage(message) {
@@ -688,37 +737,27 @@ function showOrderConfirmation(order) {
     container.innerHTML = `
         <div class="order-confirmation-header">
             <strong>✅ ORDER CONFIRMED</strong>
+            <span class="receipt-badge">Cash on Delivery</span>
         </div>
 
         <div class="order-confirmation-body">
-
             <div class="order-items">
                 ${itemsHTML}
             </div>
 
-            <div class="order-summary-row">
-                <span>Subtotal</span>
-                <span>Rs. ${subtotal}</span>
-            </div>
-
-            <div class="order-summary-row">
-                <span>Delivery</span>
-                <span>Rs. ${deliveryFee}</span>
-            </div>
-
-            <div class="order-total">
-                <span>Total</span>
-                <strong>Rs. ${total}</strong>
+            <div class="receipt-pricing-row">
+                <span>Sub: Rs. ${subtotal}</span>
+                <span>Del: Rs. ${deliveryFee}</span>
+                <strong class="receipt-total-highlight">Total: Rs. ${total}</strong>
             </div>
 
             <div class="order-status">
-                📲 Your order has been sent to Siddeqi PizzaHut.
+                📲 Order dispatched to Siddeqi PizzaHut kitchen!
             </div>
 
-            <button type="button" class="new-order-receipt-btn" onclick="startNewOrder()" style="margin-top: 14px; width: 100%; padding: 11px 16px; background: var(--primary-gradient); color: white; border: none; border-radius: 10px; font-weight: 700; font-size: 13px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
-                <span>🛒 Start Another Order / Clear Chat</span>
+            <button type="button" class="new-order-receipt-btn" onclick="startNewOrder()">
+                <span>🛒 New Order / Reset Chat</span>
             </button>
-
         </div>
     `;
 
